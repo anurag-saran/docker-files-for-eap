@@ -28,7 +28,7 @@ RUN bin/standalone.sh --admin-only 2>&1 > /dev/null & sleep 4 && bin/jboss-cli.s
 ADD default_profiles/ $JBOSS_HOME/standalone/configuration
 
 #Install Test App
-ADD dodeployments/ $JBOSS_HOME/standalone/deployments
+ADD deployments/ $JBOSS_HOME/standalone/deployments
 
 #Install default maven configuration
 ADD default_maven/ $HOME/.m2
