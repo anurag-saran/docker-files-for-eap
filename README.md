@@ -1,4 +1,4 @@
-# Dockerfiles for JBoss BPM Suite
+# Dockerfiles for JBoss EAP.
 
 ## How to use this repository
 For each version of the product, there is a branch containing a Dockerfile which will build a docker image for EAP.
