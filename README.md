@@ -19,7 +19,9 @@ You may then launch a docker container from this image using
     This directory is where the auto configuration files for the installers are kept. Change the passwords in *.xml.variables to customize the passwords.
 - **default_profiles**
     This directory contains the profiles available by default.
-##  Usefull Git Commands 
+
+##Usefull Git Commands 
+
 ```
 find . | grep .git | xargs rm -rf
 git checkout eap7
