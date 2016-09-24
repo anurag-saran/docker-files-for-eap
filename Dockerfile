@@ -25,7 +25,7 @@ RUN bin/standalone.sh --admin-only 2>&1 > /dev/null & sleep 4 && bin/jboss-cli.s
 RUN bin/standalone.sh --admin-only 2>&1 > /dev/null & sleep 4 && bin/jboss-cli.sh -c "patch apply $INSTALLERS_DIR/jboss-eap-6.4.10-patch.zip,shutdown"
 
 #Install default profiles
-ADD default_profiles/ $JBOSS_HOME/standalone/configuration
+#ADD default_profiles/ $JBOSS_HOME/standalone/configuration
 
 #Install Test App
 ADD default_deployments/ $JBOSS_HOME/standalone/deployments
@@ -38,8 +38,12 @@ ONBUILD ADD configuration/ $JBOSS_HOME/standalone/configuration
 ONBUILD ADD modules/ $JBOSS_HOME/modules
 ONBUILD ADD maven/ $HOME/.m2
 
+# Expose ports
+EXPOSE 8080
+EXPOSE 9990
+
 #Launch configuration
 WORKDIR $JBOSS_HOME
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
-ENTRYPOINT ["bin/standalone.sh", "-c"]
+ENTRYPOINT ["bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c"]
 CMD ["standalone.xml"]
