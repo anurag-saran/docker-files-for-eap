@@ -46,6 +46,6 @@ EXPOSE 9990
 WORKDIR $JBOSS_HOME
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
-ENTRYPOINT ["bin/standalone.sh"]
-#ENTRYPOINT ["bin/standalone.sh",  "-c"]
-#CMD ["standalone.xml"]
+#ENTRYPOINT ["bin/standalone.sh"]
+ENTRYPOINT ["bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0",  "-c"]
+CMD ["standalone.xml"]
