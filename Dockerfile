@@ -28,7 +28,7 @@ RUN bin/standalone.sh --admin-only 2>&1 > /dev/null & sleep 4 && bin/jboss-cli.s
 ADD default_profiles/ $JBOSS_HOME/standalone/configuration
 
 #Install Test App
-ADD deployments/ $JBOSS_HOME/standalone/deployments
+ADD default_deployments/ $JBOSS_HOME/standalone/deployments
 
 #Install default maven configuration
 ADD default_maven/ $HOME/.m2
@@ -42,4 +42,4 @@ ONBUILD ADD maven/ $HOME/.m2
 WORKDIR $JBOSS_HOME
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
 ENTRYPOINT ["bin/standalone.sh", "-c"]
-CMD ["standalone-ha.xml"]
+CMD ["standalone.xml"]
