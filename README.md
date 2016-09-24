@@ -19,3 +19,15 @@ You may then launch a docker container from this image using
     This directory is where the auto configuration files for the installers are kept. Change the passwords in *.xml.variables to customize the passwords.
 - **default_profiles**
     This directory contains the profiles available by default.
+
+#!/bin/bash
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)
+
+$ docker port test
+7890/tcp -> 0.0.0.0:4321
+9876/tcp -> 0.0.0.0:1234
+$ docker port test 7890/tcp
+0.0.0.0:4321
