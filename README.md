@@ -45,3 +45,11 @@ $ docker port test 7890/tcp
 0.0.0.0:4321
 docker inspect imageid
 ```
+
+##Running On Mac
+```
+$ docker run -it -p 8080:8080 eap7-base:702
+anurags-MacBook-Pro-2:docker-files-for-eap anuragsaran$ docker-machine ip default
+192.168.99.100
+```
+URL : http://192.168.99.100:8080/cluster-test-1.0/
